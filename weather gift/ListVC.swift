@@ -18,7 +18,7 @@ class ListVC: UIViewController {
     @IBOutlet weak var editBarButton: UIBarButtonItem!
     @IBOutlet weak var addBarButton: UIBarButtonItem!
     
-    var locationsArray = ["Local City","Sydney, Australia","Accra, Ghana","Uglich, Russia"]
+    var locationsArray = [WeatherLocation]()
     var currentPage = 0
     
     
@@ -68,7 +68,7 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath)
-        cell.textLabel?.text = locationsArray[indexPath.row]
+        cell.textLabel?.text = locationsArray[indexPath.row].name
         return cell
     }
     //MARK:- Table View editing Functions
